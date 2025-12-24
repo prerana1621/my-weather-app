@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Search, Wind, Droplets, MapPin } from 'lucide-react';
 
-// REPLACE THIS WITH YOUR ACTUAL API KEY
 const API_KEY = import.meta.env.VITE_API_KEY; 
 
 const api = {
@@ -40,7 +39,6 @@ function App() {
     }
   }
 
-  // Dynamic Background Logic
   const getBackground = () => {
     if (typeof weather.main === "undefined") return "from-blue-400 to-blue-600";
     if (weather.main.temp > 25) return "from-orange-400 to-red-600";
@@ -63,10 +61,8 @@ function App() {
   return (
     <div className={`min-h-screen flex items-center justify-center bg-gradient-to-br ${getBackground()} transition-all duration-500 p-4`}>
       
-      {/* Glassmorphism Card */}
       <div className="w-full max-w-md bg-white/20 backdrop-blur-lg rounded-3xl shadow-2xl overflow-hidden border border-white/30 p-8 text-white">
         
-        {/* Search Box */}
         <div className="flex items-center space-x-2 bg-white/30 rounded-xl p-3 mb-8 shadow-inner transition hover:bg-white/40">
           <input 
             type="text"
@@ -81,11 +77,9 @@ function App() {
           </button>
         </div>
 
-        {/* Error / Loading Messages */}
         {loading && <div className="text-center text-xl animate-pulse font-semibold">Fetching weather...</div>}
         {error && <div className="text-center text-red-100 bg-red-500/30 p-3 rounded-lg border border-red-500/50">{error}</div>}
 
-        {/* Weather Display */}
         {(typeof weather.main != "undefined") && (
           <div className="text-center animate-in fade-in zoom-in duration-500">
             <div className="flex justify-center items-center space-x-2 mb-2">
@@ -108,7 +102,6 @@ function App() {
               </div>
             </div>
 
-            {/* Weather Details Grid */}
             <div className="grid grid-cols-2 gap-4 mt-4">
               <div className="bg-white/20 rounded-xl p-4 flex flex-col items-center hover:bg-white/30 transition shadow-lg">
                 <Droplets size={28} className="mb-2" />

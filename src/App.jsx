@@ -140,7 +140,6 @@ function App() {
                 <div className="group bg-white/20 rounded-xl p-4 flex flex-col items-center hover:bg-white/30 transition shadow-lg relative">
                   <span className="text-sm opacity-80">Air Quality</span>
 
-                  {/* FIX: prevent wrapping */}
                   <span className={`text-sm font-bold px-3 py-1 rounded-full mt-1 whitespace-nowrap ${getAqiLabel(aqi).color}`}>
                     {getAqiLabel(aqi).text}
                   </span>
